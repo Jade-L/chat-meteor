@@ -1,1 +1,13 @@
 /* CSS declarations go here */
+body {
+  background-color: black;
+  color: white;
+}
+
+form {
+  background-color: #d24c12;
+}
+
+textarea {
+  background-color: white;
+}
