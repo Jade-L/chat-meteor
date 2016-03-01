@@ -8,12 +8,19 @@
 
 <template name="messages">
   <ul>
-    {{> message}}
+    {{#each messages}}
+      {{> message}}
+    {{/each}}
   </ul>
+
+  <form>
+    <textarea rows="1" cols="100"></textarea>
+  </form>
+
 </template>
 
 <template name="message">
   <li>
-    {{> message}}
+    {{message}}
   </li>
 </template>
