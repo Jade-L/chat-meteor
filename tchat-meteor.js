@@ -7,6 +7,21 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.messages.events({
+    'keypress textarea': function(e, instance) {
+      if (e.keycode == 13) { // enter key presse
+        var value = instance.find('textarea').value;
+        instance.find('textarea').value = '';
+
+        Messages.insert({
+          message: value,
+          timestamp: new Date(),
+          //user: Meteor.userId()
+        });
+      }
+    }
+  })
+
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
