@@ -8,8 +8,6 @@
 
 <template name="messages">
   {{> loginButtons align = "right"}}
-
-
   <ul>
     {{#each messages}}
       {{> message}}
@@ -24,12 +22,12 @@
 
 <template name="message">
   <li>
-    <img src="{{user.profile}}" alt="userimage" />
+    <img src="{{user.profile}}"/>
     <div class="message-header">
       {{user.username}} <span class = "time">{{time}}</span>
     </div>
     <div class="message-content">
-    {{message}}
-  </div>
+      {{message}}
+    </div>
   </li>
 </template>

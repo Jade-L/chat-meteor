@@ -1,4 +1,4 @@
-Messages = new Mongo.Collection('messages');
+Messages = new Mongo.Collection('Message');
 
 if (Meteor.isClient) {
   Template.messages.helpers({
@@ -9,12 +9,12 @@ if (Meteor.isClient) {
 
   Template.messages.events({
     'keypress textarea': function(e, instance) {
-      if (e.keycode == 13) { // enter key presse
+      if (e.keycode == 13) { // enter key press
         e.preventDefault();
         var value = instance.find('textarea').value;
         instance.find('textarea').value = '';
 
-        Messages.insert({
+        Messages.insert ({
           message: value,
           timestamp: new Date(),
           user: Meteor.userId()
@@ -25,7 +25,7 @@ if (Meteor.isClient) {
 
   Template.message.helpers({
     user: function() {
-      return Meteor.user.findOne({_id: this.user});
+      return Meteor.users.findOne({_id: this.user});
     },
 
     time: function() {
@@ -33,7 +33,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Account.ui.config({
+  Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL"
   });
 
