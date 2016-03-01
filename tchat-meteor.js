@@ -3,13 +3,13 @@ Messages = new Mongo.Collection('Message');
 if (Meteor.isClient) {
   Template.messages.helpers({
     messages: function () {
-      return Messages.find({});
+      return Messages.find();
     }
   });
 
   Template.messages.events({
     'keypress textarea': function(e, instance) {
-      if (e.keycode == 13) { // enter key press
+      if (e.keyCode == 13) { // enter key press
         e.preventDefault();
         var value = instance.find('textarea').value;
         instance.find('textarea').value = '';
